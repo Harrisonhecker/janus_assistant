@@ -1,0 +1,35 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: lightblue;
+}
+
+h1 {
+    text-align: center;
+    color: navy;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 1%;
+}
+
+#messaging-area {
+    width: 100%;
+    flex: 8;
+    outline: red solid 1px;
+    margin-bottom: 1%;
+}
+
+#user-input-area {
+    width: 100%;
+    flex: 2;
+    margin: auto;
+    text-align: center;
+}
+
+#user-input {
+    width: 90%;
+}

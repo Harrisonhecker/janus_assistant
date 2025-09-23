@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Flask App</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>Flask App</title>  
 </head>
 <body>
-  <h1>Hello, Flask!</h1>
+  <h1>Hi! I'm Janus.</h1>
+  <div id="main-container">
+    <div id="messaging-area"></div>
+    <div id="user-input-area">
+      <form action="/SubmitUserMessage" method="post">
+        <input type="text" id="user-input" name="user_input" placeholder="Ask me anything!" required></input>
+        <input type="submit" id="input-button" value="Submit">
+      </form>
+    </div>
 </body>
 </html>
