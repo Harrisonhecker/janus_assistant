@@ -12,9 +12,3 @@ requestor.SendPostRequest(link, prompt)
 dataToProcess = requestor.GetReturnData()
 answer = dataToProcess['response']
 print(answer)
-
-'''requestor = AR.ApiRequest()
-link = "https://jsonplaceholder.typicode.com/todos/1"
-requestor.SendRequest(link)
-datatoProcess = requestor.GetReturnData()
-print(datatoProcess)'''
