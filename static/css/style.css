@@ -33,3 +33,27 @@ h1 {
 #user-input {
     width: 90%;
 }
+
+.user-message {
+    background-color: #007bff; /* blue bubble */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 20px;
+    max-width: 60%;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    margin: 10px auto;
+}
+
+.system-message {
+    background-color: #e20808; /* blue bubble */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 20px;
+    max-width: 60%;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    margin: 10px auto;
+}

@@ -9,11 +9,13 @@
   <h1>Hi! I'm Janus.</h1>
   <div id="main-container">
     <div id="messaging-area">
-        <div>
-          {% for msg in messages %}
-            <div><p>{{ msg }}</p></div>
-          {% endfor %}
-      </div>
+        {% for key, value in messages.items() %}
+          {% if value == "System"%}
+            <div class="system-message"><p>{{ key }}</p></div>
+          {% else %}
+            <div class="user-message"><p>{{ key }}</p></div>
+          {% endif %}
+        {% endfor %}
     </div>
     <div id="user-input-area">
       <form action="/SubmitUserMessage" method="POST">
