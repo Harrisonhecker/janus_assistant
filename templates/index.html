@@ -10,10 +10,13 @@
   <div id="main-container">
     <div id="messaging-area"></div>
     <div id="user-input-area">
-      <form action="/SubmitUserMessage" method="post">
-        <input type="text" id="user-input" name="user_input" placeholder="Ask me anything!" required></input>
+      <form action="/test" method="POST">
+        <input type="text" id="user-input" name="data" placeholder="Ask me anything!" required></input>
         <input type="submit" id="input-button" value="Submit">
       </form>
+    </div>
+    <div>
+      <p>{{ data }}</p>
     </div>
 </body>
 </html>

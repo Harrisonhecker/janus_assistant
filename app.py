@@ -7,13 +7,18 @@ app = Flask(__name__)
 # HTML Routes
 # =====================
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET"])
 def home():
-    if request.method == "GET":
-        """Render the main homepage."""
-        return render_template("index.html")
+    return render_template("index.html")
+
+@app.route("/test", methods=["GET", "POST"])
+def test():
     if request.method == "POST":
-        user_input = request.form.get("")
+        data = request.form.get("data")
+        print(f"Received data: {data}")
+        return render_template("test.html", data=data)
+
+    return render_template("test.html")
 
 
 
