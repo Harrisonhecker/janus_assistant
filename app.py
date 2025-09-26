@@ -7,18 +7,19 @@ app = Flask(__name__)
 # HTML Routes
 # =====================
 
+messages = []
+
 @app.route("/", methods=["GET"])
 def home():
     return render_template("index.html")
 
-@app.route("/test", methods=["GET", "POST"])
+@app.route("/SubmitUserMessage", methods=["POST"])
 def test():
     if request.method == "POST":
         data = request.form.get("data")
-        print(f"Received data: {data}")
-        return render_template("test.html", data=data)
-
-    return render_template("test.html")
+        if data:
+            messages.append(data)
+        return render_template("index.html", messages=messages)
 
 
 

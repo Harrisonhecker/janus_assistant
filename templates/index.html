@@ -8,15 +8,18 @@
 <body>
   <h1>Hi! I'm Janus.</h1>
   <div id="main-container">
-    <div id="messaging-area"></div>
+    <div id="messaging-area">
+        <div>
+          {% for msg in messages %}
+            <div><p>{{ msg }}</p></div>
+          {% endfor %}
+      </div>
+    </div>
     <div id="user-input-area">
-      <form action="/test" method="POST">
+      <form action="/SubmitUserMessage" method="POST">
         <input type="text" id="user-input" name="data" placeholder="Ask me anything!" required></input>
         <input type="submit" id="input-button" value="Submit">
       </form>
-    </div>
-    <div>
-      <p>{{ data }}</p>
     </div>
 </body>
 </html>
