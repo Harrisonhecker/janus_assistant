@@ -1,4 +1,7 @@
 from flask import Flask, render_template, jsonify, request
+import ApiRequest as AR
+
+link = "http://localhost:11434/api/generate"
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -7,7 +10,7 @@ app = Flask(__name__)
 # HTML Routes
 # =====================
 
-messages = {}
+messages = []
 
 @app.route("/", methods=["GET"])
 def home():
@@ -18,16 +21,24 @@ def test():
     if request.method == "POST":
         data = request.form.get("data")
         if data:
-            messages[data] = "User"
+            messages.append({"text": data, "sender": "user"})
 
             # TODO: research how to call ollama API, call it here
             # 1. build dictionary of request data (make sure stream parameter set to false)
             # 2. establish link that we want to send request to (http://localhost:11434/api/generate)
             # 3. Use ApiRequest class to send the request and get the response
             # 4. Set the response to ollamaResponse variable
-
-            ollamaResponse = ""
-            messages[ollamaResponse] = "System"
+            prompt = {
+                "model": "gpt-oss",
+                "prompt": data,
+                "stream": False
+            }
+            requestor = AR.ApiRequest()
+            requestor.SendPostRequest(link, prompt)
+            dataToProcess = requestor.GetReturnData()
+            answer = dataToProcess['response']
+            ollamaResponse = answer
+            messages.append({"text": ollamaResponse, "sender": "system"})
         return render_template("index.html", messages=messages)
 
 
