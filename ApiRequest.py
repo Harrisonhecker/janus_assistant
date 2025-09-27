@@ -22,8 +22,8 @@ class ApiRequest:
     # Params:
     #   link -> (str) the url to send the request to
     #   postData -> (dict) dictionary that holds the data to send in the post request
-    def SendPostRequest(self, link: str, postData: dict):
-        response = requests.post(link, json=postData)
+    def SendPostRequest(self, link: str, postData: dict, headers: dict):
+        response = requests.post(link, json=postData, headers=headers)
         self.__responseData = response.json()
         return
     
